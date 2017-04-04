@@ -1,0 +1,15 @@
+{
+  "name": "flappy_ts",
+  "version": "1.0.0",
+  "description": "A simple flappy bird based game made with <3 and TS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc --watch"
+  },
+  "author": "Lucas Tavares (lucastavaresdarocha@gmail.com)",
+  "license": "ISC",
+  "dependencies": {
+    "systemjs": "^0.20.11"
+  }
+}
