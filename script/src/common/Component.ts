@@ -13,7 +13,8 @@ export class Component implements Observable {
 		this._handlers = this._handlers.filter(handler => {
 			return handler.event != event && handler.callback != callback
 		})
-		return true;
+		
+		return true
 	}
 
 	notify(event : string, context : Object = this) : void {
