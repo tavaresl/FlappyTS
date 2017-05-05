@@ -7,10 +7,19 @@
 	<title>Document</title>
 </head>
 <body>
-	<p>Hello World!</p>
+	<div id="game_area"></div>
+
 	<script src="node_modules/systemjs/dist/system.js"></script>
 	<script>
-		SystemJS.import('./script/build/main.js')
+		SystemJS.config({
+			packages: {
+				'./script/build' : {
+					format: 'system',
+					defaultExtension: 'js'
+				}
+			}
+		});
+		SystemJS.import('./script/build/main.js');
 	</script>
 </body>
 </html>

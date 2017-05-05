@@ -2,8 +2,9 @@
 	"compilerOptions": {
 		"rootDir": "./script/src",
 		"outDir": "./script/build",
-		"target": "es5",
-		"module": "system"
+		"target": "es6",
+		"module": "system",
+		"sourceMap": true
 	},
 	"include": [
 		"./script/src"

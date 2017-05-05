@@ -1,3 +1,7 @@
-import { Game } from './common/Game'
+import Game from './Game';
 
-Game.init()
+console.log('App starting...');
+
+let game = new Game();
+
+console.log('App has started successfully.');

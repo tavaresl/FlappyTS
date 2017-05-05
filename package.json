@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc --watch"
+    "start": "tsc --module system --watch",
+    "build": "babel script/es6 -d script/build --source-maps --watch"
   },
   "author": "Lucas Tavares (lucastavaresdarocha@gmail.com)",
   "license": "ISC",
