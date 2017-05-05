@@ -1,19 +1,31 @@
+import Constants from './common/constants';
+import World from './World';
+
 class Game {
 
-	constructor() {	
-		this.init();
-	}
+    private _gameArea: HTMLElement;
+    private _gameCanvas: HTMLCanvasElement;
+    private _context: CanvasRenderingContext2D;
+    private _world: World;
 
-	init() : void {
-		const gameArea = document.getElementById('game_area');
-		const gameCanvas = document.createElement('canvas');
+    constructor() {
+        this._gameArea = document.getElementById('game_area');
+        this._gameCanvas = document.createElement('canvas');
 
-		gameCanvas.id = 'game_canvas';
-		gameCanvas.width = 800;
-		gameCanvas.height = 600;
+        this._gameCanvas.id = 'game_canvas';
+        this._gameCanvas.width = Constants.CANVAS_WIDTH;
+        this._gameCanvas.height = Constants.CANVAS_HEIGHT;
+        this._gameArea.insertBefore(this._gameCanvas, this._gameArea.firstChild);
+        
+        this._context = this._gameCanvas.getContext('2d');
+        this._world = new World();
 
-		gameArea.insertBefore(gameCanvas, gameArea.firstChild);
-	}
+        this.init();
+    }
+
+    init() : void {
+        this._world.draw(this._context);
+    }
 }
 
 export default Game;
