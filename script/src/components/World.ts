@@ -1,4 +1,4 @@
-import { CANVAS_WIDTH, CANVAS_HEIGHT, BACKGROUND_COLOR } from './common/constants';
+import { CANVAS_WIDTH, CANVAS_HEIGHT, BACKGROUND_COLOR } from '../common/constants';
 
 class World {
 

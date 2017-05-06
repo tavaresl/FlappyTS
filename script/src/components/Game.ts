@@ -1,4 +1,4 @@
-import {CANVAS_WIDTH, CANVAS_HEIGHT} from './common/constants';
+import {CANVAS_WIDTH, CANVAS_HEIGHT} from '../common/constants';
 import World from './World';
 import Flappy from './Flappy';
 
@@ -43,6 +43,10 @@ class Game {
 
     init(): void {
         this._world.draw(this._context);
+
+        this._flappy.register('move', (context) => {
+            if (context.)
+        });
 
         this._animationFrame = window.requestAnimationFrame(this.update.bind(this));
     }

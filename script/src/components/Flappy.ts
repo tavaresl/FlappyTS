@@ -1,7 +1,8 @@
 import {CANVAS_HEIGHT, CANVAS_WIDTH, SOLID_COLOR, GRAVITY_ACCELERATION,
-    JUMP_SPEED} from './common/constants';
+    JUMP_SPEED} from '../common/constants';
+import Component from './Component';
 
-class Flappy {
+class Flappy extends Component {
 
     private _width: number;
     private _height: number;
@@ -14,6 +15,8 @@ class Flappy {
     private _jumping: boolean;
 
     constructor() {
+        super();
+
         this._width = 30;
         this._height = 30;
         this._rotation = 0;
@@ -38,6 +41,8 @@ class Flappy {
                     + this._speed
                     - GRAVITY_ACCELERATION
                     + (GRAVITY_ACCELERATION / 2);
+
+        this.notify('move');
     }
 
     update(context: CanvasRenderingContext2D): void {
