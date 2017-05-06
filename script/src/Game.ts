@@ -1,5 +1,6 @@
 import Constants from './common/constants';
 import World from './World';
+import Flappy from './Flappy';
 
 class Game {
 
@@ -7,6 +8,8 @@ class Game {
     private _gameCanvas: HTMLCanvasElement;
     private _context: CanvasRenderingContext2D;
     private _world: World;
+    private _flappy: Flappy;
+    private _animationFrame: any;
 
     constructor() {
         this._gameArea = document.getElementById('game_area');
@@ -19,12 +22,29 @@ class Game {
 
         this._context = this._gameCanvas.getContext('2d');
         this._world = new World();
+        this._flappy = new Flappy();
 
         this.init();
     }
 
-    init() : void {
+    update(): void {
+        this._world.update(this._context);
+        this._flappy.update(this._context);
+        
+        this.draw();
+    }
+
+    draw(): void {
         this._world.draw(this._context);
+        this._flappy.draw(this._context);
+
+        window.requestAnimationFrame(this.update.bind(this));
+    }
+
+    init(): void {
+        this._world.draw(this._context);
+
+        this._animationFrame = window.requestAnimationFrame(this.update.bind(this));
     }
 }
 
