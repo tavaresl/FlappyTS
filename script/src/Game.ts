@@ -1,4 +1,4 @@
-import Constants from './common/constants';
+import {CANVAS_WIDTH, CANVAS_HEIGHT} from './common/constants';
 import World from './World';
 import Flappy from './Flappy';
 
@@ -16,8 +16,8 @@ class Game {
         this._gameCanvas = document.createElement('canvas');
 
         this._gameCanvas.id = 'game_canvas';
-        this._gameCanvas.width = Constants.CANVAS_WIDTH;
-        this._gameCanvas.height = Constants.CANVAS_HEIGHT;
+        this._gameCanvas.width = CANVAS_WIDTH;
+        this._gameCanvas.height = CANVAS_HEIGHT;
         this._gameArea.insertBefore(this._gameCanvas, this._gameArea.firstChild);
 
         this._context = this._gameCanvas.getContext('2d');

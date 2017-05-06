@@ -1,4 +1,5 @@
-import Constants from './common/constants';
+import {CANVAS_HEIGHT, CANVAS_WIDTH, SOLID_COLOR, GRAVITY_ACCELERATION,
+    JUMP_SPEED} from './common/constants';
 
 class Flappy {
 
@@ -17,12 +18,9 @@ class Flappy {
         this._height = 30;
         this._rotation = 0;
         this._speed = 0;
-        this._backgroundColor = Constants.SOLID_COLOR;
-        this._acceleration = 0;
+        this._backgroundColor = SOLID_COLOR;
         this._posX = 100;
-        this._posY = Constants.CANVAS_HEIGHT / 2;
-        
-        console.log(this);
+        this._posY = CANVAS_HEIGHT / 2;
 
         this.init();
     }
@@ -32,28 +30,14 @@ class Flappy {
     get rotation(): number { return this._rotation; }
     get speed(): number { return this._speed; }
     get acceleration():number { return this._acceleration; }
-    get isJumping(): boolean { return this._jumping; }
-
-    set jumping(jumping: boolean) { this._jumping = jumping; }
 
     private move(): void {
-        let dAcceleration = Constants.GRAVITY_ACCELERATION;
-        
-        if (this._acceleration > 0) {
-            dAcceleration = Constants.GRAVITY_ACCELERATION - this._acceleration;
-        }
-        else {
-            this._acceleration = 0;
-        }
-
         this._speed = this._speed 
-                       + dAcceleration;
+                       + GRAVITY_ACCELERATION;
         this._posY = this._posY 
-                    + this._speed 
-                    - Constants.GRAVITY_ACCELERATION 
-                    + (Constants.GRAVITY_ACCELERATION / 2);
-
-        this._acceleration = dAcceleration;
+                    + this._speed
+                    - GRAVITY_ACCELERATION
+                    + (GRAVITY_ACCELERATION / 2);
     }
 
     update(context: CanvasRenderingContext2D): void {
@@ -65,12 +49,12 @@ class Flappy {
         context.fillRect(this._posX, this._posY, this._width, this._height);
     }
 
+    jump(event: MouseEvent): void {
+        this._speed = JUMP_SPEED;
+    }
+
     init(): void {
-        window.addEventListener('keydown', (event: KeyboardEvent) => {
-            if (event.keyCode == 32) {
-                this._acceleration = Constants.JUMP_FORCE;
-            }
-        });
+        window.addEventListener('mousedown', this.jump.bind(this));
     }
 }
 

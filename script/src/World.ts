@@ -1,4 +1,4 @@
-import Constants from './common/constants';
+import { CANVAS_WIDTH, CANVAS_HEIGHT, BACKGROUND_COLOR } from './common/constants';
 
 class World {
 
@@ -7,9 +7,9 @@ class World {
     private _backgroundColor: string;
     
     constructor() {
-        this._width = Constants.CANVAS_WIDTH;
-        this._height = Constants.CANVAS_HEIGHT;
-        this._backgroundColor = Constants.BACKGROUND_COLOR;
+        this._width = CANVAS_WIDTH;
+        this._height = CANVAS_HEIGHT;
+        this._backgroundColor = BACKGROUND_COLOR;
     }
 
     get width(): number { return this._width; }
@@ -24,7 +24,7 @@ class World {
 
     draw(context: CanvasRenderingContext2D): void {
         context.fillStyle = this._backgroundColor;
-        context.rect(0, 0, Constants.CANVAS_WIDTH, Constants.CANVAS_HEIGHT);
+        context.rect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
         context.fill();
     }
 
