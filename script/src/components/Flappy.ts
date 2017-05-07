@@ -2,7 +2,7 @@ import {CANVAS_HEIGHT, CANVAS_WIDTH, SOLID_COLOR, GRAVITY_ACCELERATION,
     JUMP_SPEED} from '../common/constants';
 import Component from './Component';
 
-class Flappy extends Component {
+class Flappy extends Component<Flappy> {
 
     private _width: number;
     private _height: number;
@@ -33,6 +33,9 @@ class Flappy extends Component {
     get rotation(): number { return this._rotation; }
     get speed(): number { return this._speed; }
     get acceleration():number { return this._acceleration; }
+    get posY(): number { return this._posY; }
+
+    set posY(posY: number) { this._posY = posY; }
 
     private move(): void {
         this._speed = this._speed 
@@ -56,6 +59,8 @@ class Flappy extends Component {
 
     jump(event: MouseEvent): void {
         this._speed = JUMP_SPEED;
+
+        this.notify('jump');
     }
 
     init(): void {
