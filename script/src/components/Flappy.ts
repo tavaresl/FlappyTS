@@ -45,7 +45,7 @@ class Flappy extends Component<Flappy> {
                     - GRAVITY_ACCELERATION
                     + (GRAVITY_ACCELERATION / 2);
 
-        this.notify('move');
+        this.notify('move', this);
     }
 
     update(context: CanvasRenderingContext2D): void {
@@ -60,7 +60,7 @@ class Flappy extends Component<Flappy> {
     jump(event: MouseEvent): void {
         this._speed = JUMP_SPEED;
 
-        this.notify('jump');
+        this.notify('jump', this);
     }
 
     init(): void {
