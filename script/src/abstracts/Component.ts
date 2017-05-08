@@ -4,7 +4,7 @@ import Observable from '../common/Observable';
 
 abstract class Component<T> implements Observable<T> {
 
-    private _handlers: Handler<T>[] = [];
+    private _handlers: Handler<T>[];
 
     constructor() {
         this._handlers = [];
