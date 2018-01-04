@@ -13,13 +13,13 @@
     <script>
         SystemJS.config({
             packages: {
-                './script/build' : {
+                './bin' : {
                     format: 'system',
                     defaultExtension: 'js'
                 }
             }
         });
-        SystemJS.import('./script/build/main.js');
+        SystemJS.import('./bin/main.js');
     </script>
 </body>
 </html>

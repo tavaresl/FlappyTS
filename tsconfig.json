@@ -1,12 +1,12 @@
 {
 	"compilerOptions": {
-		"rootDir": "./script/src",
-		"outDir": "./script/build",
+		"rootDir": "./src",
+		"outDir": "./bin",
 		"target": "es6",
 		"module": "system",
 		"sourceMap": true
 	},
 	"include": [
-		"./script/src"
+		"./src"
 	]
 }

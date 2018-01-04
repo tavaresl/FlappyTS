@@ -1,1 +1,0 @@
-export type callback<T> = (context:T) => void;
