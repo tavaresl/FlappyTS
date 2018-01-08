@@ -11,6 +11,7 @@
   "author": "Lucas Tavares (lucastavaresdarocha@gmail.com)",
   "license": "ISC",
   "dependencies": {
+    "hammerjs": "^2.0.8",
     "pubsub-js": "^1.5.8",
     "systemjs": "^0.20.11"
   },

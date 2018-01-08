@@ -15,7 +15,7 @@ export class Game {
     this.world = new World(WIDTH, HEIGHT);
     this.player = new Player(100, HEIGHT / 2 - 20, 40, 40);
     this.state = 0;
-    this.registerListeners();
+    this.init();
   }
 
   start(): void {
@@ -36,12 +36,12 @@ export class Game {
     return window.requestAnimationFrame(this.render.bind(this));
   }
 
-  registerListeners(): void {
+  init(): void {
     PubSub.subscribe('hit-ground', hit => {
-      if (hit) {
-        console.log('hit-ground');
-        this.state = 1;
-      }
-    })
+      console.log('Bird hit ground');
+      this.state = 1;
+    });
+
+
   }
 }

@@ -1,5 +1,6 @@
 import { Component } from "./Component";
 import { Ground } from "./Ground";
+import { BoundingBox } from "./Solid";
 
 export class World extends Component {
   private ground: Ground;
@@ -17,5 +18,10 @@ export class World extends Component {
   }
 
   init(): void {
+    PubSub.subscribe('bird-move', (msg, bird: BoundingBox) => {
+      if (bird.posY + bird.height > this.ground.getBoundingBox().posY) {
+        PubSub.publish('hit-ground', this.ground.getBoundingBox());
+      }
+    });
   }
 }
