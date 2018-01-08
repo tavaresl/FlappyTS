@@ -4,11 +4,11 @@ export class Canvas {
   private el: HTMLCanvasElement;
   private ctx: CanvasRenderingContext2D;
 
-  constructor() {
+  constructor(width: number, height: number) {
     this.el = document.createElement('canvas');
     this.ctx = this.el.getContext('2d');
-    this.el.width = 320;
-    this.el.height = 480;
+    this.el.width = width;
+    this.el.height = height;
     
     document.getElementById('game_area').appendChild(this.el);
   }

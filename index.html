@@ -12,6 +12,9 @@
     <script src="node_modules/systemjs/dist/system.js"></script>
     <script>
         SystemJS.config({
+            map: {
+                'pubsub-js': './node_modules/pubsub-js/src/pubsub.js'
+            },
             packages: {
                 './bin' : {
                     format: 'system',
